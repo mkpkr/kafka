@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        event-input-channel:
+          destination: event-topic
+  kafka:
+    streams:
+      binder:
+        brokers: localhost:9092
+
+        
+ 

@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        event-input-channel:
+          destination: event-topic
+        notification-output-channel:
+          destination: notification-topic
+        database-output-channel:
+          destination: database-topic
+  kafka:
+    streams:
+      binder:
+        brokers: localhost:9092
+
+        
+ 

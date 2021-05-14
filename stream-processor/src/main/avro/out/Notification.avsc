@@ -1,9 +1,0 @@
-{"namespace": "com.mike.kafka.streamprocessor.model.out",
-  "type": "record",
-  "name": "Notification",
-  "fields": [
-    {"name": "Type", "type": ["null", "string"]},
-    {"name": "Timestamp",  "type": ["null", "long"]},
-    {"name": "Data",  "type": ["null", "string"]}
-  ]
-}
