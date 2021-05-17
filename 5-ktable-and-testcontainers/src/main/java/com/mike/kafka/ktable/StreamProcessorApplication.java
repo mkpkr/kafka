@@ -1,4 +1,4 @@
-package com.mike.kafka.streamprocessor;
+package com.mike.kafka.ktable;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -30,5 +30,10 @@ Consume and produce messages using *Spring Cloud Stream* and *Kafka Streams* (KS
 * 1 listener
 * 0 output channels, listener sends directly to 2 topics
 
+# ktable-and-testcontainers
+
+**KTable & TestContainers**
+
+
 # stream-processor-functional
 
