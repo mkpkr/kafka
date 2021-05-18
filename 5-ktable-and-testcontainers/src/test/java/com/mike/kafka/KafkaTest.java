@@ -65,6 +65,7 @@ public class KafkaTest {
 		@Bean
 		public NewTopic wordsTopic() {
 		    return TopicBuilder.name("words-topic")
+		    		.partitions(3)
 		            .build();
 		}
 

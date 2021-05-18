@@ -56,12 +56,14 @@ public class WordsListenerTest extends KafkaTest {
 	@Test
 	public void send() throws Exception {
 		kafkaTemplate.send("words-topic", "key1", "Hello world").get();
-		kafkaTemplate.send("words-topic", "key1", "Hello kafka").get();
+		kafkaTemplate.send("words-topic", "key2", "Hello kafka").get();
+		kafkaTemplate.send("words-topic", "key3", "Hello kafka").get();
 		
-		Thread.sleep(500);
+		Thread.sleep(1000);
 
 		kafkaTemplate.send("words-topic", "key1", "Hello again").get();
-		kafkaTemplate.send("words-topic", "key1", "Hi kafka").get();
+		kafkaTemplate.send("words-topic", "key2", "Hi kafka").get();
+		kafkaTemplate.send("words-topic", "key3", "We meet again").get();
 		
 		Thread.sleep(1000);
 	}
