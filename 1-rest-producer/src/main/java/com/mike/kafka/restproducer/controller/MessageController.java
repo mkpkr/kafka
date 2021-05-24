@@ -18,6 +18,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,12 +27,13 @@ import com.mike.kafka.restproducer.model.Message;
 import com.mike.kafka.restproducer.service.KafkaService;
 
 @RestController
+@RequestMapping("/v1/kafka")
 public class MessageController {
 	
 	@Autowired
 	private KafkaService kafkaService;
 	
-	@PostMapping("/send/{topic}")
+	@PostMapping("/{topic}")
 	@ResponseStatus(HttpStatus.ACCEPTED)
 	public ResponseEntity<String> sendMessage(@PathParam("topic") String topic, 
 			                                  @RequestParam("key") Optional<String> key, 

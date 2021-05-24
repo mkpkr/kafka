@@ -2,6 +2,8 @@
 
 A simple REST API that publishes to Kafka using *Spring for Apache Kafka* (KafkaTemplate)
 
+Uses **Spring Rest Docs**
+
 # imperative-stream-processor_two-listeners
 
 Consume and produce messages using *Spring Cloud Stream* and *Kafka Streams* (KStream)

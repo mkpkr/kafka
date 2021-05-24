@@ -2,6 +2,7 @@ package com.mike.kafka.restproducer.controller;
 
 //import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.*;
+import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.request.RequestDocumentation.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -31,15 +32,19 @@ class MessageControllerTest {
 	
 	@Test
 	void testMessageSentOk() throws Exception {
-		mockMvc.perform(post("/send/{topic}", "some-topic")
+		mockMvc.perform(post("/{topic}", "some-topic")
 				.param("key", "some-key")
 				.contentType(MediaType.APPLICATION_JSON)
 		        .content("{\"data\":\"my data\","
 		        		 + "\"something\":\"100.0\"}"))
 		        .andExpect(status().isOk())
-		        .andDo(document("/send", pathParameters(
-		        		parameterWithName("topic").description("The topic to send the message.")
-		        	   )));
+		        .andDo(document("v1/kafka-post", 
+		        	pathParameters(
+		        	    parameterWithName("topic").description("The topic to send the message.")
+		        	), requestParameters(
+		        		parameterWithName("key").description("The key of the message.")
+		        	), responseFields(fieldWithPath("response-field1").description("The description")
+		        )));
 	}
 	
 	@Test
